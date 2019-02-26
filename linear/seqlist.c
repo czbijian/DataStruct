@@ -11,7 +11,7 @@ typedef struct _tag_SeqList
 {
 	int length;
 	int capacity;
-	unsigned int *node;   //int* node[]
+	unsigned int **node;   //int* node[]
 }TSeqList;
 
 SeqList* SeqList_Create(int capacity)
@@ -29,7 +29,7 @@ SeqList* SeqList_Create(int capacity)
 	memset(tmp, 0, sizeof(TSeqList));
 
 	//根据capacity 的大小分配节点的空间
-	tmp->node = (unsigned int *)malloc(sizeof(unsigned int *) * capacity);
+	tmp->node = (unsigned int **)malloc(sizeof(unsigned int *) * capacity);
 	if (tmp->node  == NULL)
 	{
 		ret = -2;
@@ -130,7 +130,7 @@ int SeqList_Insert(SeqList* list, SeqListNode* node, int pos)
 	}
 	// i = 3
 	// 2插入元素
-	tlist->node[i] = (unsigned int )node;
+	tlist->node[i] = node;
 	tlist->length ++;
 	return 0;
 }
