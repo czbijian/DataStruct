@@ -17,6 +17,8 @@ public:
 
 	int del(int pos, T &t);
 
+	int clear();
+
 private:
 	int len;
 	int capacity;

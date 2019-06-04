@@ -70,3 +70,9 @@ int SeqList<T>::del(int pos, T &t){
 	return 0;
 
 }
+
+template <typename T>
+int SeqList<T>::clear(){
+	this->len = 0;
+	return 0;
+}

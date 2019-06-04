@@ -2,6 +2,7 @@
 using namespace std;
 //#include "SeqList.h" error.
 #include "SeqList.cpp"
+#include "LinkList.cpp"
 
 struct Teacher{
 	char name[64];
@@ -49,23 +50,49 @@ void main_seqlist_play02(){
 	list.insert(p2, 0);
 	list.insert(p3, 0);
 	//测试链表的遍历
+	/*for (int i = 0; i < list.getlen(); i++)
+	{
+		list.get(i, tmp);
+		cout << tmp->age << " ";
+	}*/
+	list.clear();//清空链表
 	for (int i = 0; i < list.getlen(); i++)
 	{
 		list.get(i, tmp);
 		cout << tmp->age << " ";
 	}
+
+}
+
+void main_linklist_play(){
+	Teacher t1, t2, t3, tmp;
+	t1.age = 31;
+	t2.age = 32;
+	t3.age = 33;
+
+	LinkList<Teacher> list;
+	list.insert(t1, 0);
+	list.insert(t2, 0);
+	list.insert(t3, 0);
+	//测试链表的遍历
+	for (int i = 0; i < list.getlen(); i++)
+	{
+		list.get(i, tmp);
+		cout << tmp.age << " ";
+	}
 	//链表的销毁
 	while (list.getlen() > 0)
 	{
 		list.del(0, tmp);
-		cout << tmp->age << " ";
+		cout << tmp.age << " ";
 	}
 	return ;
 }
 
 void main(){
 	//main_seqlist_play();
-	main_seqlist_play02();
+	//main_seqlist_play02();
+	main_linklist_play();
 	cout << "hello..." << endl;
 	system("pause");
 	return ;
